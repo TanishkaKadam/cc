@@ -1,0 +1,97 @@
+pratical 3  salesforce 
+Practical Title: Creating an Application in SalesForce.com using Apex programming
+Language
+
+
+
+1. setup -> developers console -> file -> new -> apex class
+
+2. name the apex  class as  CreateAccount then click ok
+
+3. copy the apex class code then save it with ctrl +s
+
+
+
+public class CreateAccount {
+    public String name {get; set;}
+	public String phoneNumber {get; set;}
+	public String selectedname {get; set;}
+	public String websiteURL {get; set;}
+	public List<Selectoption> lstnamesel {get; set;}
+	public CreateAccount(ApexPages.StandardController controller) {
+		lstnamesel = new List<selectoption>(); lstnamesel.add(new
+		selectOption('','- None -')); lstnamesel.add(new
+		selectOption('IT','IT')); lstnamesel.add(new
+		selectOption('MECH','MECH')); lstnamesel.add(new
+		selectOption('CHEM','CHEM')); lstnamesel.add(new
+		selectOption('PHARMA','PHARMA'));
+	}
+	public PageReference createAccount() {
+		System.debug('teset create');
+		if(!String.isEmpty(name)) {
+			Account accountRecord = new Account(Name = name,
+					Phone = phoneNumber,
+					Industry = selectedname,
+					Website = websiteURL);
+			INSERT accountRecord;
+			PageReference pg = new PageReference('/'+accountRecord.Id);
+			pg.setRedirect(true);
+			return pg;
+		} else {
+			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.CONFIRM,'Please enter Account Name'));
+                }
+      return NULL;
+     }
+    public PageReference cancelAccount() {
+      PageReference pg = new PageReference('/'+Schema.SObjectType.Account.getKeyPrefix()+'/o');
+    return pg;
+   } 
+}
+
+
+
+4. new -> visualforce page -> name the class as same as CreateAccount -> then copy the next visualfroce code
+
+
+
+<apex:page standardController="Account" extensions="CreateAccount">
+    <apex:form id="apexFrom" >
+      <apex:pageBlock title="Create Account:" id="pageBlockId">
+      <apex:pageMessages id="showmsg"></apex:pageMessages>
+      <apex:pageBlockSection columns="2" >
+         <!--<div class = "requiredInput">
+             <div class = "requiredBlock"></div>
+             <apex:inputText value="{!name}" label="Account Name"
+         required="true"/> </div>-->
+         <apex:inputText value="{!name}" label="Account Name" required="true"/>
+          <apex:inputText value="{!phoneNumber}" label="Phone" /> <apex:selectList
+          size="1" value="{!selectedname}" label="Industry">
+            <apex:selectOptions value="{!lstnamesel}"/>
+         </apex:selectList>
+         <apex:inputText value="{!websiteURL}" label="Website"/> </apex:pageBlockSection>
+         <apex:pageBlockButtons >
+           <apex:commandButton action="{!createAccount}" value="Save"/>
+           <apex:commandButton action="{!cancelAccount}" value="Cancel"/>
+         </apex:pageBlockButtons>
+       </apex:pageBlock>
+       <!-- ACTION FUNCTIONS-->
+       <apex:actionFunction name="createFunction" action="{!createAccount}"/>
+       <apex:actionFunction name="cancelFunction" action="{!cancelAccount}"/>
+     </apex:form>
+   </apex:page>
+
+
+
+
+5.  save the code 
+6. to run the code go to the main page , then in the url put apex/CreateAccount, press enter
+7. then give any name to account name, industries ,etc detaits to he page  , then save it 
+8. then your account is created, also you can delete the account 
+
+
+
+
+
+
+
+
