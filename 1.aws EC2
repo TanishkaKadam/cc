@@ -1,0 +1,13 @@
+1st Practical Ec2 instance
+
+
+Step 1 = login to https://aws.amazon.com/console/
+Step 2 = sign in using root user email
+Step 3 = go to search bar and search EC2
+Step 4 = click EC2
+Step 5 = click on Launch instance
+Step 6 = give name to instance
+Step 7 =Select Amazon Machine Image
+Step 8 = Create a new key pair , give name and direct click on create key pair
+Step 9= tick on both checkbox of allow https traffic
+Step 10 = Launch instance 
