@@ -1,0 +1,59 @@
+public class Arithmatic {
+    public  static void add(){
+        Integer a=5;
+        Integer b=7;
+        Integer c=a+b;
+        System.debug('Addition of ' +a+ ' and ' +b+ ' is: '  +c);
+    }
+    public static void sub(){
+        Integer a=10;
+        Integer b=5;
+        Integer c= a-b;
+        System.debug('Subtraction  of ' +a+ ' and ' +b+ ' is: '  +c);
+    }
+    public static void mul(){
+        Integer a=5;
+        Integer b=2;
+        Integer c = a*b;
+        System.debug('Multiplication of ' +a+ ' and ' +b+ ' is: '  +c);
+        
+    }
+    public static void div(){
+        Integer a=50;
+        Integer b =5;
+        Integer c= a/b;
+        System.debug('Division of ' +a+ ' and ' +b+ ' is: '  +c);
+        
+      
+        }
+    public static void square(){
+        Integer a = 5; 
+        Integer c = a*a;
+        System.debug('Square of ' +a+ ' is :' +c);
+    }  
+
+}
+
+
+
+
+
+
+Arithmatic.add();
+Arithmatic.sub();
+Arithmatic.mul();
+Arithmatic.div();
+
+
+
+
+
+
+steps: 
+1. setup -> developers console -> file -> new -> apex class
+
+2. name the apex  class as  CreateAccount then click ok
+
+3. copy the apex class code then save it with ctrl +s
+
+  
